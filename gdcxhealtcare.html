@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDCX Healthcare - Your Health Partner</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-blue-600 p-4 fixed w-full top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center cursor-pointer" onclick="showPage('home')">
+                <svg class="h-8 w-8 text-white mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v.01M8 8h.01M12 8h.01M16 8h.01M12 12h.01M8 12h.01M16 12h.01M12 16h.01M8 16h.01M16 16h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <h1 class="text-white text-2xl font-bold">GDCX Healthcare</h1>
+            </div>
+            <div class="hidden md:flex space-x-4">
+                <button onclick="showPage('home')" class="text-white hover:text-blue-200">Home</button>
+                <button onclick="showPage('symptomChecker')" class="text-white hover:text-blue-200">Symptom Checker</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Homepage -->
+    <div id="homePage" class="pt-16">
+        <div class="bg-gradient-to-b from-blue-500 to-blue-600 text-white py-20">
+            <div class="container mx-auto px-4 text-center">
+                <div class="mb-8">
+                    <svg class="h-24 w-24 mx-auto text-white mb-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v.01M8 8h.01M12 8h.01M16 8h.01M12 12h.01M8 12h.01M16 12h.01M12 16h.01M8 16h.01M16 16h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome to GDCX Healthcare</h1>
+                    <p class="text-xl md:text-2xl mb-8">Your trusted partner in understanding your health</p>
+                </div>
+                <button onclick="showPage('symptomChecker')" 
+                        class="bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-50 transition-colors duration-300 shadow-lg">
+                    Start Symptom Check
+                </button>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 py-16">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="text-blue-600 mb-4">
+                        <svg class="h-12 w-12" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Quick Assessment</h3>
+                    <p class="text-gray-600">Get instant feedback about your symptoms and potential treatments</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="text-blue-600 mb-4">
+                        <svg class="h-12 w-12" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Professional Guidance</h3>
+                    <p class="text-gray-600">Receive recommendations on whether to seek medical attention</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="text-blue-600 mb-4">
+                        <svg class="h-12 w-12" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Instant Results</h3>
+                    <p class="text-gray-600">Get immediate suggestions for managing your symptoms</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Symptom Checker Page -->
+    <div id="symptomCheckerPage" class="hidden pt-16">
+        <main class="container mx-auto p-4 mt-8">
+            <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-semibold mb-6">Symptom Checker</h2>
+                
+                <div class="mb-6">
+                    <p class="text-gray-600 mb-4">Please select your symptoms below:</p>
+                    
+                    <div class="space-y-4" id="symptomsList">
+                        <div class="flex items-center">
+                            <input type="checkbox" id="fever" class="symptom-checkbox mr-3">
+                            <label for="fever">Fever</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="headache" class="symptom-checkbox mr-3">
+                            <label for="headache">Headache</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="cough" class="symptom-checkbox mr-3">
+                            <label for="cough">Cough</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="soreThroat" class="symptom-checkbox mr-3">
+                            <label for="soreThroat">Sore Throat</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="fatigue" class="symptom-checkbox mr-3">
+                            <label for="fatigue">Fatigue</label>
+                        </div>
+                    </div>
+
+                    <div class="mt-6">
+                        <label for="additionalSymptoms" class="block mb-2">Additional Symptoms:</label>
+                        <textarea id="additionalSymptoms" class="w-full p-2 border rounded-lg" rows="3" placeholder="Please describe any other symptoms you're experiencing..."></textarea>
+                    </div>
+
+                    <button onclick="checkSymptoms()" class="mt-6 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                        Get Treatment Suggestions
+                    </button>
+                </div>
+
+                <div id="results" class="hidden mt-8 p-6 bg-gray-50 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4">Treatment Suggestions</h3>
+                    <div id="suggestions" class="space-y-4"></div>
+                    
+                    <div class="mt-6 p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+                        <p class="text-sm text-yellow-800">
+                            <strong>Disclaimer:</strong> This is a basic symptom checker and should not replace professional medical advice. If you're experiencing severe symptoms or are concerned about your health, please consult a healthcare provider immediately.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="bg-gray-800 text-white mt-12 py-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 GDCX Healthcare. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const symptomDatabase = {
+            fever: {
+                suggestions: [
+                    "Rest and get plenty of sleep",
+                    "Stay hydrated with water and clear fluids",
+                    "Take over-the-counter fever reducers like acetaminophen",
+                    "Use a light blanket if you have chills"
+                ],
+                severity: "moderate"
+            },
+            headache: {
+                suggestions: [
+                    "Rest in a quiet, dark room",
+                    "Stay hydrated",
+                    "Try over-the-counter pain relievers",
+                    "Apply a cold or warm compress to your head or neck"
+                ],
+                severity: "mild"
+            },
+            cough: {
+                suggestions: [
+                    "Stay hydrated and drink warm liquids",
+                    "Use honey for natural cough relief",
+                    "Try over-the-counter cough medicines",
+                    "Use a humidifier while sleeping"
+                ],
+                severity: "mild"
+            },
+            soreThroat: {
+                suggestions: [
+                    "Gargle with warm salt water",
+                    "Drink warm liquids like tea with honey",
+                    "Try throat lozenges",
+                    "Use over-the-counter pain relievers"
+                ],
+                severity: "mild"
+            },
+            fatigue: {
+                suggestions: [
+                    "Get adequate rest and sleep",
+                    "Maintain a balanced diet",
+                    "Stay hydrated",
+                    "Consider taking short breaks during the day"
+                ],
+                severity: "mild"
+            }
+        };
+
+        function showPage(page) {
+            document.getElementById('homePage').classList.add('hidden');
+            document.getElementById('symptomCheckerPage').classList.add('hidden');
+            
+            document.getElementById(page + 'Page').classList.remove('hidden');
+        }
+
+        function checkSymptoms() {
+            const selectedSymptoms = [];
+            const checkboxes = document.querySelectorAll('.symptom-checkbox');
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    selectedSymptoms.push(checkbox.id);
+                }
+            });
+
+            const additionalSymptoms = document.getElementById('additionalSymptoms').value;
+            
+            // Show results
+            const resultsDiv = document.getElementById('results');
+            const suggestionsDiv = document.getElementById('suggestions');
+            resultsDiv.classList.remove('hidden');
+            
+            // Clear previous suggestions
+            suggestionsDiv.innerHTML = '';
+
+            if (selectedSymptoms.length === 0 && !additionalSymptoms) {
+                suggestionsDiv.innerHTML = '<p class="text-red-600">Please select at least one symptom or describe your symptoms.</p>';
+                return;
+            }
+
+            // Generate suggestions
+            let hasSevereSymptoms = false;
+            selectedSymptoms.forEach(symptom => {
+                if (symptomDatabase[symptom]) {
+                    const suggestionsList = document.createElement('div');
+                    suggestionsList.className = 'mb-4';
+                    suggestionsList.innerHTML = `
+                        <h4 class="font-semibold mb-2">For ${symptom.charAt(0).toUpperCase() + symptom.slice(1)}:</h4>
+                        <ul class="list-disc pl-6">
+                            ${symptomDatabase[symptom].suggestions.map(suggestion => `<li class="mb-1">${suggestion}</li>`).join('')}
+                        </ul>
+                    `;
+                    suggestionsDiv.appendChild(suggestionsList);
+
+                    if (symptomDatabase[symptom].severity === "severe") {
+                        hasSevereSymptoms = true;
+                    }
+                }
+            });
+
+            if (hasSevereSymptoms || selectedSymptoms.length >= 3) {
+                const urgentNote = document.createElement('div');
+                urgentNote.className = 'mt-4 p-4 bg-red-50 border border-red-200 rounded-lg';
+                urgentNote.innerHTML = `
+                    <p class="text-red-700">
+                        <strong>Important:</strong> Based on your symptoms, we recommend consulting a healthcare provider for proper evaluation.
+                    </p>
+                `;
+                suggestionsDiv.appendChild(urgentNote);
+            }
+
+            // Handle additional symptoms
+            if (additionalSymptoms) {
+                const additionalNote = document.createElement('div');
+                additionalNote.className = 'mt-4 p-4 bg-blue-50 border border-blue-200 rounded-lg';
+                additionalNote.innerHTML = `
+                    <p class="text-blue-700">
+                        <strong>Additional Symptoms:</strong> Based on your description, we recommend consulting a healthcare provider for a proper evaluation of these symptoms.
+                    </p>
+                `;
+                suggestionsDiv.appendChild(additionalNote);
+            }
+        }
+
+        // Show homepage by default
+        showPage('home');
+    </script>
+</body>
+</html>
